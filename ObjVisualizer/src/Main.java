@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class Main extends JPanel {
 	
@@ -23,6 +26,11 @@ public class Main extends JPanel {
 	
 	//Los controles para poder movernos
 	private static KeyListener listener;
+	//para manejar el tiempo
+	private static ActionListener alistener;
+	
+	private static Timer timer;
+	//private static 
 	
 	private static int width = 600;
 	private static int height = 600;
@@ -35,19 +43,8 @@ public class Main extends JPanel {
 		
 		crearVentana();
 		
-		
-		
-		while (1==1) {
-			
-			ventana.repaint();
-			
-			try {
-				Thread.sleep(25);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		timer = new Timer(17, alistener);
+		timer.start();
 		
 		
 	}
@@ -172,6 +169,15 @@ public class Main extends JPanel {
 			@Override
 			public void keyReleased(KeyEvent e) {
 			}
+		};
+		
+		alistener = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ventana.repaint();
+			}
+			
 		};
 	}
 

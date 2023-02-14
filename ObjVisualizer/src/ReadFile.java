@@ -8,7 +8,7 @@ public class ReadFile {
 	
 	public static List<String> listaString(String s) {
 		List<String> input = new ArrayList<String>();
-		String name = "C:\\Users\\Andrés\\workspace\\ObjVisualizer\\objects\\" + s + ".obj";
+		String name = "C:\\Users\\Andrés\\git\\KaS-Obj\\ObjVisualizer\\objects\\" + s + ".obj";
 		Path path = Paths.get(name);
 		try {
 			input = Files.readAllLines(path);
